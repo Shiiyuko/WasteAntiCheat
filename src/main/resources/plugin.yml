@@ -1,0 +1,11 @@
+name: WasteAC
+main: org.stone72.WasteAC
+version: 1.0.9.9-Plus
+api: 1.0.9
+author: Stone72
+commands:
+  wac:
+    description: WasteAC一个轻盈而又实用的反作弊.
+    usage: /wac help
+    permission: op
+    permission-message: 你没有权限执行此命令！

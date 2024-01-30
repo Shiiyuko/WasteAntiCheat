@@ -1,0 +1,103 @@
+check:
+  # 目前仅支持这些
+  enable:
+    - KillAura
+    - AutoClicker
+    - Reach
+    - AimBot
+    - Speed
+    - Velocity
+    - AirJump
+    - WrongRise
+    - Scaffold
+    - BadPacket
+    - ThroughWall
+    - BHop
+    - NoSlow
+    - InventoryMove
+    - Spammer
+    - Timer
+  # min: 值<min 时触发
+  # max: 值>max 时触发
+  KillAura:
+    min_attack_delay: 5
+    max_attack_bot: 4
+    remove_tick: 60
+  BHop:
+    normal_move: 3.732
+  NoSlow:
+    normal_move: 0.210
+    clear_time: 24
+  Timer:
+    max_packet: 22
+  ThroughWall:
+    max_move: 0.315
+  Scaffold:
+    min_tick: 4
+    max_yaw: 32.555
+  WrongRise:
+    max_rise: 0.380
+  AutoClicker:
+    max_cps: 25
+  Reach:
+    max_reach: 3.100
+  Speed:
+    max_move: 0.855
+setting:
+  # 反作弊默认不检测OP
+  # WasteAC验证服务器端口
+  port: 19191
+  # 被排除的世界不检测
+  excluded_worlds:
+    - "lobby"
+  # 调试模式
+  # 不增加vl值
+  debug: false
+  # 每N秒减少1vl (所有作弊项的vl)
+  reduce_vl: 10
+  # vl|cmd=命令|是否清除vl值|是否广播|是否使用CmdWave|addKvl=int
+  # 描述:
+  #   vl等于N时执行对应操作
+  #   CmdWave能够延迟6秒执行操作
+  #   指令由控制台执行
+  #   支持变量:
+  #   %player% - 玩家名称
+  #   %type% - 作弊类型
+  vl_event:
+    KillAura:
+      - "3:cmd=kick %player% %kickMes%:false:true:true:addKvl=1"
+      - "6:cmd=kick %player% %kickMes%:false:true:true:addKvl=1"
+      - "8:cmd=:true:false:false:addKvl=1"
+  # kvl|cmd=命令|是否清除kvl值|是否广播|是否使用CmdWave|addBvl=int
+  # 描述见vl_event
+  kvl_event:
+    - "3:cmd=ban %player% %bannedMes%:true:true:true:addBvl=0"
+  # bvl|cmd=命令|是否清除bvl值|是否广播|是否使用CmdWave
+  # 描述见vl_event
+  bvl_event: []
+  # 所有消息支持的变量
+  # %year% - 封禁的年
+  # %month% - 封禁的月
+  # %day% - 封禁的日
+  # %hour% - 封禁的时
+  # %minute% - 封禁的分
+  # %second% - 封禁的秒
+  # %player% - 作弊玩家
+  # %type% - 作弊类型
+  # 踢出消息
+  kick_message: |-
+    §r§r
+                §l§c>> KICK MESSAGE <<
+       §7 游戏数据异常,你的连接已从服务器断开
+    §e你因作弊被踢出了服务器 §7| §bWasteAC 反作弊检测
+              §7请重新加入服务器.....
+  # 封禁消息
+  banned_message: |-
+    §r§r
+               §l§c>> BANNED MESSAGE <<
+        §7连接已丢失,你因作弊被服务器封禁了
+    §e时间: %year% 年 %month% 月 %day% 日 %hour% 时 %minute% 分 %second% 秒 §7| §bWasteAC 反作弊检测
+          §7申诉解封和疑问QQ群:12345678
+  # 广播消息
+  broadcast_message: "§l[§bWasteAC§f] §c一名玩家因作弊或滥用游戏漏洞被踢出了服务器 §b感谢你的举报,为游戏创造更好的环境!"
+      
