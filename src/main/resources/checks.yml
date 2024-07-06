@@ -1,0 +1,302 @@
+# 所有设置不代表最佳设置,请根据服务器自行自定义
+Combat_Check: #检测项
+  AimBot: # 是否启用整个检查
+    enable: true
+    # 取消作弊事件(包括op和debug模式)
+    # 不建议启用,有助于外挂调试配置
+    cancel: false
+    # 分支模块
+    modules: # 模块A(A检测)
+      type-a: # 是否启用这个检查
+        enable: true
+        # 作弊时会首先添加触发值
+        # 添加vl值时检查触发值是否>=此值
+        # 触发值<=1 则代表直接添加vl值
+        flag_value: 1
+        # 以下为AimBot的设置
+        outlier_judge: 0.5
+        max_valve: 5.0
+        reduce: 1.0
+        angle_diff: 3.0
+        max_diff: 6.5
+        # vl|cmd=命令|是否清除vl值|是否广播|是否使用CmdWave|addKvl=int
+        # 描述:
+        #   vl等于N时执行对应操作
+        #   CmdWave能够延迟N秒执行操作
+        #   指令由控制台执行
+        #   支持变量:
+        #   %player% - 玩家名称
+        #   %type% - 作弊类型
+        #   可以不填写
+        vl_event:
+          - 3:cmd=wac kick %player% 你被踢出了:false:true:true:addKvl=1
+          - 6:cmd=wac kick %player% 你被踢出了:false:true:true:addKvl=1
+          - 8:cmd=:true:false:false:addKvl=1
+  AutoClicker:
+    enable: true
+    cancel: false
+    modules:
+      type-a:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        max_cps: 20
+      type-b:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        max_tick: 20
+  KillAura:
+    enable: true
+    cancel: false
+    modules:
+      type-a:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        min_switch_delay: 10
+      type-b:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        max_attack_bot: 4
+        remove_tick: 60
+      type-c:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        combo_tick: 10
+      type-d:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        hop_count: 1
+  Range:
+    enable: true
+    cancel: false
+    modules:
+      type-a:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        normal_reach: 3.05
+        threshold: 0.545
+      type-b:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        max_horizontal: 5
+        max_vertical: 3
+Moving_Check:
+  AirJump:
+    enable: true
+    cancel: false
+    modules:
+      type-a:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+  Speed:
+    enable: true
+    cancel: false
+    modules:
+      type-a:
+        enable: true
+        flag_value: 0
+        vl_event: [ ]
+      type-b:
+        enable: true
+        flag_value: 0
+        vl_event: [ ]
+      type-c:
+        enable: true
+        flag_value: 0
+        vl_event: [ ]
+        forward_move: 0.3342
+        left_move: 0.1838
+        left_knock: 0.25
+        up_left_move: 0.315
+        behind_move: 0.1821
+        behind_knock: 0.25
+        keep_count: 13
+  ThroughWall:
+    enable: true
+    cancel: false
+    modules:
+      type-a:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        max_move: 0.335
+  Fly:
+    enable: true
+    cancel: false
+    modules:
+      type-a:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+      type-b:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        learn: false
+        data:
+          - -0.3015
+          - -0.0754
+          - -0.1523
+          - -0.1648
+          - -0.003
+          - -0.0831
+          - 0.0831
+      type-c:
+        enable: false
+        flag_value: 1
+        vl_event: [ ]
+        learn: false
+        data: []
+  HighJump:
+    enable: true
+    cancel: false
+    modules:
+      type-a:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        max_high: 0.3333
+  Velocity:
+    enable: true
+    cancel: false
+    modules:
+      type-a:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        vertical: 0.5155982971191406
+        learn: false
+        data:
+          - 0.2999992370605469
+          - 0.4290046691894531
+  NoSlow:
+    enable: true
+    cancel: false
+    modules:
+      type-a:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+      type-b:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        normal_move: 0.210
+        use_count: 12
+        clear_time: 23
+Player_Check:
+  InventoryMove:
+    enable: true
+    cancel: false
+    modules:
+      type-a:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        min_start: 10
+      type-b:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+      type-c:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+      type-d:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        max_tick: 8
+  Teleport:
+    enable: true
+    cancel: false
+    modules:
+      type-a:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        max_move: 0.8
+      type-b:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+  Scaffold:
+    enable: true
+    cancel: false
+    modules:
+      type-a:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+      type-b:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        place_tick: 12
+      type-c:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+Misc_Check:
+  BadPacket:
+    enable: true
+    cancel: false
+    modules:
+      type-a:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+      type-b:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+      type-c:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+  ManyPackets:
+    enable: true
+    cancel: false
+    modules:
+      type-a:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        max_tick: 20
+        max_packet: 21
+        outlier_judge: 0.5
+        max_valve: 5.0
+        reduce: 1.0
+  Spammer:
+    enable: true
+    cancel: true
+    modules:
+      type-a:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+      type-b:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        max_tick: 60
+      type-c:
+        enable: true
+        flag_value: 1
+        vl_event: [ ]
+        character: 8
+        similarity: 0.9
+Tool:
+  delay_tel_calculate: 200
+  delay_knock_calculate: 150
+  delay_skate_calculate: 3000
+  delay_join_calculate: 200
+  delay_respawn_calculate: 200
